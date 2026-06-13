@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"] // 设置别名提示
+    }
+  },
+  "include": ["src", "jsconfig.json"]
+}
