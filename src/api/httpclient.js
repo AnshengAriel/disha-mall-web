@@ -82,6 +82,9 @@ function request(config) {
   // 捕获失败通知
   if (isNotify) {
     result.catch(e => {
+      if (e.status == 500) {
+        e.msg = '没有网络连接'
+      }
       errorMsg(e.msg)
       return Promise.reject(e)
     })

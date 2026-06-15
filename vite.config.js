@@ -18,7 +18,7 @@ export default defineConfig({
     port: 17080,
     proxy: {
       '/web': {
-        target: 'http://localhost:18080',
+        target: 'http://localhost:18080', // 报文显示还是17080，但实际已转发
         secure: false,
         changeOrigin: true,
         // rewrite: (path) => path.replace(/^\/web/, '')

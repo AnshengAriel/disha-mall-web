@@ -46,6 +46,7 @@ import { login } from '@/api/manager'
 import { useRouter } from 'vue-router'
 import { successMsg, errorMsg } from "@/composables/notification";
 import { setToken } from '@/composables/auth';
+import { setUser } from '@/composables/store';
 
 const router = useRouter()
 const form = reactive({
@@ -66,8 +67,9 @@ const submitLogin = () => {
     if (valid) {
       form.loading = true
       login(form.model)
-        .then(r => {
-          setToken(r.token)
+        .then(d => {
+          setToken(d.token)
+          setUser(d)
           successMsg('登录成功')
           router.push('/')
         }).catch(e => {
